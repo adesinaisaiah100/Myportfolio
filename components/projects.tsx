@@ -12,7 +12,7 @@ const projects = [
     tags: ["Next.js", "TypeScript", "Stripe"],
     liveUrl: "#",
     repoUrl: "#",
-    gradient: "from-blue-500/20 to-purple-500/20"
+    gradient: "from-blue-500/20 to-purple-500/20 "
   },
   {
     title: "Task Management App",
