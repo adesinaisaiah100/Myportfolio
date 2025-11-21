@@ -4,6 +4,8 @@ import { motion } from "framer-motion"
 import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
+import heroImage from "./myimageforlandingpage.png"
 
 export function Hero() {
   return (
@@ -37,18 +39,22 @@ export function Hero() {
           </p>
           
           <div className="flex flex-wrap gap-4 pt-4">
-            <Button size="lg" className="rounded-full h-12 px-8 text-base">
-              View Projects <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button variant="outline" size="lg" className="rounded-full h-12 px-8 text-base">
-              Contact Me
-            </Button>
+            <Link href="#projects">
+              <Button size="lg" className="rounded-full h-12 px-8 text-base">
+                View Projects <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            <Link href="#contact">
+              <Button variant="outline" size="lg" className="rounded-full h-12 px-8 text-base">
+                Contact Me
+              </Button>
+            </Link>
           </div>
 
           <div className="flex items-center gap-6 pt-8 text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors"><Github size={24} /></a>
-            <a href="#" className="hover:text-primary transition-colors"><Linkedin size={24} /></a>
-            <a href="#" className="hover:text-primary transition-colors"><Twitter size={24} /></a>
+            <a href="https://www.linkedin.com/in/oluwatimileyinadesina" className="hover:text-primary transition-colors"><Github size={24} /></a>
+            <a href="https://github.com/adesinaisaiah100" className="hover:text-primary transition-colors"><Linkedin size={24} /></a>
+            <a href="https://x.com/WIGOH_EP" className="hover:text-primary transition-colors"><Twitter size={24} /></a>
           </div>
         </motion.div>
 
@@ -68,22 +74,18 @@ export function Hero() {
             }}
             className="relative z-10"
           >
-            <div className="relative w-[350px] h-[350px] md:w-[450px] md:h-[450px] rounded-full overflow-hidden border-4 border-background shadow-2xl">
-              {/* Placeholder for user avatar - using a high quality gradient/abstract fallback or placeholder service */}
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-400 dark:from-slate-800 dark:to-slate-950 flex items-center justify-center">
-                 <span className="text-6xl">👨‍💻</span>
-              </div>
-              {/* If you have a real image, uncomment below */}
-              {/* <Image 
-                src="/avatar-placeholder.jpg" 
-                alt="Avatar" 
+            <div className="relative w-[350px] h-[350px] md:w-[490px] md:h-[490px] rounded-full overflow-hidden p-5 border border-background shadow-2xl shadow-purple-500/20">
+              <Image 
+                src={heroImage} 
+                alt="Isaiah Adesina" 
                 fill 
                 className="object-cover"
-              /> */}
+                priority
+              />
             </div>
             
             {/* Floating Cards/Elements for decoration */}
-            <motion.div 
+            {/* <motion.div 
               animate={{ y: [0, 15, 0] }}
               transition={{ duration: 4, repeat: Infinity, delay: 1 }}
               className="absolute -left-8 top-20 bg-card p-4 rounded-xl shadow-lg border border-border"
@@ -95,9 +97,9 @@ export function Hero() {
                   <p className="text-xs text-muted-foreground">Expert</p>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
 
-            <motion.div 
+            {/* <motion.div 
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
               className="absolute -right-4 bottom-20 bg-card p-4 rounded-xl shadow-lg border border-border"
@@ -109,7 +111,7 @@ export function Hero() {
                   <p className="text-xs text-muted-foreground">Creative</p>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           {/* Glow behind avatar */}

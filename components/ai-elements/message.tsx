@@ -220,6 +220,8 @@ export const MessageBranchSelector = ({
   from,
   ...props
 }: MessageBranchSelectorProps) => {
+  // Prevent unused variable warning
+  void from;
   const { totalBranches } = useMessageBranch();
 
   // Don't render if there's only one branch
@@ -229,7 +231,10 @@ export const MessageBranchSelector = ({
 
   return (
     <ButtonGroup
-      className="[&>*:not(:first-child)]:rounded-l-md [&>*:not(:last-child)]:rounded-r-md"
+      className={cn(
+        "[&>*:not(:first-child)]:rounded-l-md [&>*:not(:last-child)]:rounded-r-md",
+        className
+      )}
       orientation="horizontal"
       {...props}
     />
@@ -271,6 +276,7 @@ export const MessageBranchNext = ({
   return (
     <Button
       aria-label="Next branch"
+      className={className}
       disabled={totalBranches <= 1}
       onClick={goToNext}
       size="icon-sm"

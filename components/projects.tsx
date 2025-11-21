@@ -3,48 +3,55 @@
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Github, ExternalLink, Code2 } from "lucide-react"
+import { Github, ExternalLink } from "lucide-react"
+import Image from "next/image"
+
+import chefClaudeImg from "./chefclaude.png"
+import eazyNoteImg from "./eazynote.png"
+import mojitoImg from "./mojito.png"
+import technestImg from "./Technest.png"
+import studyBuddyImg from "./studybuddy.png"
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-featured online store with cart functionality, payment processing, and user authentication.",
-    tags: ["Next.js", "TypeScript", "Stripe"],
-    liveUrl: "#",
-    repoUrl: "#",
-    gradient: "from-blue-500/20 to-purple-500/20 "
+    title: "An Ai Chef Platform ",
+    description: "A platform that allows users to upload their available ingedients and get best recipe suggestions using AI.",
+    tags: ["Next.js", "TypeScript", "Tailwind css"],
+    liveUrl: "https://chefclaude-black.vercel.app/",
+    repoUrl: "https://github.com/adesinaisaiah100/AI_Recipe",
+    image: chefClaudeImg
   },
   {
-    title: "Task Management App",
-    description: "A collaborative task manager with real-time updates, drag-and-drop interface, and team features.",
-    tags: ["React", "Firebase", "Tailwind"],
-    liveUrl: "#",
-    repoUrl: "#",
-    gradient: "from-emerald-500/20 to-teal-500/20"
+    title: "Eazy notes App",
+    description: "Eazy notes is a note taking application that allows users to create, edit, and organize their notes seamlessly using ai to help summarize and find note ",
+    tags: ["Next js", "Mongodb", "Tailwind"],
+    liveUrl: "https://eazy-notes.vercel.app/",
+    repoUrl: "https://github.com/adesinaisaiah100/Notes_App",
+    image: eazyNoteImg
   },
   {
-    title: "Weather Dashboard",
-    description: "Real-time weather tracking application with detailed forecasts and location-based services.",
-    tags: ["Vue.js", "OpenWeather API"],
-    liveUrl: "#",
-    repoUrl: "#",
-    gradient: "from-orange-500/20 to-red-500/20"
+    title: "Mojito's Website Clone",
+    description: "A mojito's website clone built with React.js, featuring a modern and sleek design with responsive layout and interactive elements.",
+    tags: ["React js", "Gsap"],
+    liveUrl: "https://mojitos-app.vercel.app/",
+    repoUrl: "https://github.com/adesinaisaiah100/mojito-s-app",
+    image: mojitoImg
   },
   {
-    title: "Portfolio Website",
-    description: "A modern, responsive portfolio website built with Next.js and Framer Motion.",
-    tags: ["Next.js", "Framer Motion"],
-    liveUrl: "#",
-    repoUrl: "#",
-    gradient: "from-pink-500/20 to-rose-500/20"
+    title: "Technest",
+    description: "A blog that shares insights, tutorials, and the latest trends in technology, web development, and programming.",
+    tags: ["Next.js", "Framer motion"],
+    liveUrl: "https://tblog-ivory.vercel.app/",
+    repoUrl: "https://github.com/adesinaisaiah100/Tblog",
+    image: technestImg
   },
   {
-    title: "Social Media Dashboard",
-    description: "Analytics dashboard for tracking social media performance across multiple platforms.",
-    tags: ["React", "D3.js", "Node.js"],
-    liveUrl: "#",
-    repoUrl: "#",
-    gradient: "from-violet-500/20 to-indigo-500/20"
+    title: "Study Buddy",
+    description: "Study buddy is an ai platform that helps students to organize their study materials, generate quizzes, and provide personalized study plans to enhance learning efficiency.",
+    tags: ["Next js", "Tailwind css", "Ai sdk"],
+    liveUrl: "https://study-buddy-prototype.vercel.app/",
+    repoUrl: "https://github.com/adesinaisaiah100/StudyBuddy_Prototype",
+    image: studyBuddyImg
   },
 ]
 
@@ -77,10 +84,12 @@ export function Projects() {
               <Card className="overflow-hidden group border-primary/10 bg-background/30 backdrop-blur-lg hover:shadow-xl transition-all duration-300">
                 {/* Image Area */}
                 <div className="relative h-48 w-full overflow-hidden bg-muted">
-                  {/* Placeholder Gradient / Image */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} group-hover:scale-110 transition-transform duration-500 flex items-center justify-center`}>
-                    <Code2 className="w-12 h-12 text-muted-foreground/20" />
-                  </div>
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                   
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-background/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-6 text-center">

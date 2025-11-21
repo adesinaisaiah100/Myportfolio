@@ -7,7 +7,18 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Send, User, Type, MessageSquare } from "lucide-react"
 
+import { useActionState } from "react"
+import { sendEmail } from "@/app/actions"
+import { Loader2 } from "lucide-react"
+
+const initialState = {
+  message: "",
+  success: false,
+}
+
 export function Contact() {
+  const [state, formAction, isPending] = useActionState(sendEmail, initialState)
+
   return (
     <section id="contact" className="py-20 relative">
       <div className="container mx-auto px-4">
@@ -39,14 +50,16 @@ export function Contact() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-6" action={formAction}>
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium flex items-center gap-2 text-muted-foreground">
                       <User className="w-4 h-4" /> Name
                     </label>
                     <Input 
                       id="name" 
+                      name="name"
                       placeholder="Your name" 
+                      required
                       className="bg-background/50 border-primary/10 focus:border-primary/30 transition-colors"
                     />
                   </div>
@@ -57,7 +70,9 @@ export function Contact() {
                     </label>
                     <Input 
                       id="title" 
+                      name="title"
                       placeholder="What is this regarding?" 
+                      required
                       className="bg-background/50 border-primary/10 focus:border-primary/30 transition-colors"
                     />
                   </div>
@@ -68,14 +83,31 @@ export function Contact() {
                     </label>
                     <Textarea 
                       id="description" 
+                      name="description"
                       placeholder="Tell me more about your project or inquiry..." 
+                      required
                       className="min-h-[150px] bg-background/50 border-primary/10 focus:border-primary/30 transition-colors resize-none"
                     />
                   </div>
 
-                  <Button className="w-full group" size="lg">
-                    Send Message
-                    <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  {state.message && (
+                    <div className={`text-sm text-center p-2 rounded ${state.success ? 'bg-green-500/10 text-green-500' : 'bg-red-500/10 text-red-500'}`}>
+                      {state.message}
+                    </div>
+                  )}
+
+                  <Button className="w-full group" size="lg" disabled={isPending}>
+                    {isPending ? (
+                      <>
+                        Sending...
+                        <Loader2 className="w-4 h-4 ml-2 animate-spin" />
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      </>
+                    )}
                   </Button>
                 </form>
               </CardContent>

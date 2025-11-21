@@ -1,8 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Calendar, GraduationCap, Briefcase, Code } from "lucide-react"
-import Image from "next/image"
+import { GraduationCap, Briefcase } from "lucide-react"
+
 import { Card, CardContent } from "@/components/ui/card"
 
 export function About() {
@@ -50,20 +50,20 @@ export function About() {
             >
               <div className="space-y-4 text-center md:text-left">
                 <h3 className="text-2xl md:text-3xl font-semibold">
-                  Passionate Frontend Developer based in Nigeria
+                  A Passionate Frontend Developer
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
                   I am a dedicated frontend developer with a keen eye for detail and a passion for creating user-centric digital experiences. My journey in web development started with a curiosity about how things work on the internet, which quickly turned into a career.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  I specialize in building responsive, accessible, and performant web applications using modern technologies like React, Next.js, and TypeScript. I believe in writing clean, maintainable code and constantly learning new tools to improve my craft.
+                  I specialize in building responsive, accessible, and performant web and ai applications using modern technologies like React, Next.js, and TypeScript. I believe in writing clean, maintainable code and constantly learning new tools to improve my craft.
                 </p>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <Card className="bg-background/30 backdrop-blur-lg border-primary/10">
                   <CardContent className="p-6 text-center space-y-2">
-                    <h3 className="text-4xl font-bold text-primary">3+</h3>
+                    <h3 className="text-4xl font-bold text-primary">4+</h3>
                     <p className="text-sm text-muted-foreground">Years Experience</p>
                   </CardContent>
                 </Card>
@@ -92,7 +92,7 @@ export function About() {
                   <div className="relative">
                     <div className="absolute -left-[31px] top-1 h-4 w-4 rounded-full bg-primary" />
                     <h5 className="font-medium">Senior Frontend Developer</h5>
-                    <p className="text-sm text-muted-foreground">Tech Solutions Ltd • 2023 - Present</p>
+                    <p className="text-sm text-muted-foreground">Bond Startup • 2023 - 2023</p>
                     <p className="text-sm text-muted-foreground mt-2">
                       Leading the frontend team in building scalable web applications.
                     </p>
@@ -100,7 +100,7 @@ export function About() {
                   <div className="relative">
                     <div className="absolute -left-[31px] top-1 h-4 w-4 rounded-full bg-muted border-2 border-primary" />
                     <h5 className="font-medium">Frontend Developer Intern</h5>
-                    <p className="text-sm text-muted-foreground">StartUp Hub • 2022 - 2023</p>
+                    <p className="text-sm text-muted-foreground">Letem • 2022 - 2023</p>
                   </div>
                 </div>
               </div>
@@ -112,8 +112,8 @@ export function About() {
                 <div className="border-l-2 border-border pl-6 space-y-6 relative">
                   <div className="relative">
                     <div className="absolute -left-[31px] top-1 h-4 w-4 rounded-full bg-primary" />
-                    <h5 className="font-medium">Bachelor of Science in Computer Science</h5>
-                    <p className="text-sm text-muted-foreground">University of Lagos • 2019 - 2023</p>
+                    <h5 className="font-medium">Bachelor of Technology In Automotive Engineering</h5>
+                    <p className="text-sm text-muted-foreground">University of Ibadan • 2022 - Present</p>
                   </div>
                 </div>
               </div>
