@@ -1,8 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Github, ExternalLink } from "lucide-react"
 import Image from "next/image"
 
@@ -11,8 +9,17 @@ import eazyNoteImg from "./eazynote.png"
 import mojitoImg from "./mojito.png"
 import technestImg from "./Technest.png"
 import studyBuddyImg from "./studybuddy.png"
+import corecvImg from "./corecvproject.png"
 
 const projects = [
+  {
+    title: "CoreCV",
+    description: "An intelligent resume builder that helps you create, manage, and update resumes with ease. Build a master profile once, paste a job description, and get a tailored resume generated in seconds.",
+    tags: ["Next.js", "TypeScript", "Tailwind css", "Ai sdk"],
+    liveUrl: "https://corecv.vercel.app",
+    repoUrl: "https://corecv.vercel.app",
+    image: corecvImg
+  },
   {
     title: "An Ai Chef Platform ",
     description: "A platform that allows users to upload their available ingedients and get best recipe suggestions using AI.",
@@ -57,77 +64,84 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-20 relative">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-24 relative">
+      <div className="container mx-auto px-6">
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center justify-center gap-4 mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-16 max-w-6xl mx-auto"
         >
-          <div className="h-[1px] w-12 md:w-24 bg-border" />
-          <h2 className="text-3xl md:text-4xl font-bold text-center">Featured Projects</h2>
-          <div className="h-[1px] w-12 md:w-24 bg-border" />
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">Work</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2">
+            Featured <span className="text-gradient">Projects</span>
+          </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group"
             >
-              <Card className="overflow-hidden group border-primary/10 bg-background/30 backdrop-blur-lg hover:shadow-xl transition-all duration-300">
-                {/* Image Area */}
-                <div className="relative h-48 w-full overflow-hidden bg-muted">
+              <div className="relative rounded-2xl overflow-hidden bg-card/50 border border-border hover:border-primary/20 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5">
+                {/* Image */}
+                <div className="relative h-56 w-full overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-background/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-6 text-center">
-                    <p className="text-sm font-medium text-foreground/90 line-clamp-3">
-                      {project.description}
-                    </p>
-                    <div className="flex gap-3">
-                      <Button size="sm" variant="default" asChild className="h-8">
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="w-3.5 h-3.5 mr-2" /> Preview
-                        </a>
-                      </Button>
-                      <Button size="sm" variant="outline" asChild className="h-8">
-                        <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="w-3.5 h-3.5 mr-2" /> Code
-                        </a>
-                      </Button>
-                    </div>
+                  <div className="absolute inset-0 bg-linear-to-t from-card via-card/20 to-transparent" />
+
+                  {/* Hover overlay with links */}
+                  <div className="absolute inset-0 bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4">
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full bg-primary text-primary-foreground hover:scale-110 transition-transform"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
+                    <a
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full bg-card border border-border text-foreground hover:scale-110 transition-transform"
+                    >
+                      <Github className="w-5 h-5" />
+                    </a>
                   </div>
                 </div>
 
-                {/* Content Area */}
-                <CardContent className="p-5">
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
+                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                    {project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map(tag => (
-                      <span 
-                        key={tag} 
-                        className="text-[10px] uppercase tracking-wider px-2 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary/80 font-medium"
+                      <span
+                        key={tag}
+                        className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
