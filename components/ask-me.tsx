@@ -28,24 +28,25 @@ export function AskMe() {
   };
 
   return (
-    <section id="ask-me" className="py-20 relative overflow-hidden">
+    <section id="ask-me" className="py-24 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center justify-center gap-4 mb-12"
+          transition={{ duration: 0.6 }}
+          className="mb-12 max-w-2xl mx-auto text-center"
         >
-          <div className="h-[1px] w-12 md:w-24 bg-border" />
-          <h2 className="text-3xl md:text-4xl font-bold text-center">Ask AI About Me</h2>
-          <div className="h-[1px] w-12 md:w-24 bg-border" />
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">AI Chat</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2">
+            Ask AI <span className="text-gradient">About Me</span>
+          </h2>
         </motion.div>
 
         <motion.div
@@ -55,8 +56,8 @@ export function AskMe() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="max-w-2xl mx-auto"
         >
-          <Card className="h-[600px] flex flex-col border-primary/10 shadow-xl bg-background/50 backdrop-blur-sm">
-            <CardHeader className="border-b border-border/50">
+          <Card className="h-[600px] flex flex-col border-border shadow-xl bg-card/50 backdrop-blur-sm hover:border-primary/20 transition-colors duration-500">
+            <CardHeader className="border-b border-border">
               <CardTitle className="flex items-center gap-2 text-lg">
                 <Bot className="w-5 h-5 text-primary" />
                 Isaiah&apos;s AI Assistant

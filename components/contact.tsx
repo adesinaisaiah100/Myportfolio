@@ -20,19 +20,20 @@ export function Contact() {
   const [state, formAction, isPending] = useActionState(sendEmail, initialState)
 
   return (
-    <section id="contact" className="py-20 relative">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-24 relative">
+      <div className="container mx-auto px-6">
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center justify-center gap-4 mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-16 max-w-2xl mx-auto text-center"
         >
-          <div className="h-[1px] w-12 md:w-24 bg-border" />
-          <h2 className="text-3xl md:text-4xl font-bold text-center">Get in Touch</h2>
-          <div className="h-[1px] w-12 md:w-24 bg-border" />
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">Contact</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2">
+            Get in <span className="text-gradient">Touch</span>
+          </h2>
         </motion.div>
 
         <div className="max-w-2xl mx-auto">
@@ -42,7 +43,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Card className="border-primary/10 bg-background/30 backdrop-blur-lg shadow-2xl">
+            <Card className="border-border bg-card/50 backdrop-blur-sm shadow-xl hover:border-primary/20 transition-colors duration-500">
               <CardHeader className="text-center space-y-2">
                 <CardTitle className="text-2xl">Send me a message</CardTitle>
                 <CardDescription>
@@ -60,7 +61,7 @@ export function Contact() {
                       name="name"
                       placeholder="Your name" 
                       required
-                      className="bg-background/50 border-primary/10 focus:border-primary/30 transition-colors"
+                      className="bg-card/50 border-border focus:border-primary/30 transition-colors"
                     />
                   </div>
 
@@ -73,7 +74,7 @@ export function Contact() {
                       name="title"
                       placeholder="What is this regarding?" 
                       required
-                      className="bg-background/50 border-primary/10 focus:border-primary/30 transition-colors"
+                      className="bg-card/50 border-border focus:border-primary/30 transition-colors"
                     />
                   </div>
 
@@ -86,7 +87,7 @@ export function Contact() {
                       name="description"
                       placeholder="Tell me more about your project or inquiry..." 
                       required
-                      className="min-h-[150px] bg-background/50 border-primary/10 focus:border-primary/30 transition-colors resize-none"
+                      className="min-h-[150px] bg-card/50 border-border focus:border-primary/30 transition-colors resize-none"
                     />
                   </div>
 
