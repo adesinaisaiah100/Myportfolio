@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
 import { BrainCircuit } from "lucide-react"
 
 
@@ -70,43 +69,59 @@ const skills = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-20 relative">
-      <div className="container mx-auto px-4">
+    <section id="skills" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-6">
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center justify-center gap-4 mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-16 max-w-6xl mx-auto"
         >
-          <div className="h-[1px] w-12 md:w-24 bg-border" />
-          <h2 className="text-3xl md:text-4xl font-bold text-center">My Skills</h2>
-          <div className="h-[1px] w-12 md:w-24 bg-border" />
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">Skills</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2">
+            Technologies I <span className="text-gradient">work with</span>
+          </h2>
         </motion.div>
+      </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+      {/* Marquee Row 1 */}
+      <div className="relative mb-4">
+        <div className="flex animate-marquee gap-4" style={{ width: "fit-content" }}>
+          {[...skills, ...skills].map((skill, i) => (
+            <div
+              key={`${skill.name}-${i}`}
+              className="flex items-center gap-3 px-6 py-3 rounded-full bg-card/50 border border-border hover:border-primary/30 transition-colors duration-300 whitespace-nowrap"
             >
-              <Card className="group hover:shadow-lg transition-all duration-300 border-primary/10 bg-background/30 backdrop-blur-lg hover:-translate-y-1">
-                <CardContent className="p-6 flex flex-col items-center justify-center gap-4">
-                  <div className={`w-12 h-12 transition-colors duration-300 ${skill.color}`}>
-                    <skill.icon className="w-full h-full" />
-                  </div>
-                  <h3 className="font-medium text-lg group-hover:text-primary transition-colors">
-                    {skill.name}
-                  </h3>
-                </CardContent>
-              </Card>
-            </motion.div>
+              <div className="w-6 h-6 shrink-0 [&>svg]:w-full [&>svg]:h-full">
+                <skill.icon />
+              </div>
+              <span className="text-sm font-medium">{skill.name}</span>
+            </div>
           ))}
         </div>
+        <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-linear-to-l from-background to-transparent z-10 pointer-events-none" />
+      </div>
+
+      {/* Marquee Row 2 - reverse */}
+      <div className="relative">
+        <div className="flex animate-marquee-reverse gap-4" style={{ width: "fit-content" }}>
+          {[...skills, ...skills].reverse().map((skill, i) => (
+            <div
+              key={`${skill.name}-rev-${i}`}
+              className="flex items-center gap-3 px-6 py-3 rounded-full bg-card/50 border border-border hover:border-primary/30 transition-colors duration-300 whitespace-nowrap"
+            >
+              <div className="w-6 h-6 shrink-0 [&>svg]:w-full [&>svg]:h-full">
+                <skill.icon />
+              </div>
+              <span className="text-sm font-medium">{skill.name}</span>
+            </div>
+          ))}
+        </div>
+        <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-linear-to-l from-background to-transparent z-10 pointer-events-none" />
       </div>
     </section>
   )
