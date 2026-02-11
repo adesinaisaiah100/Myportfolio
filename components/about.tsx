@@ -1,124 +1,138 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { GraduationCap, Briefcase } from "lucide-react"
-
-import { Card, CardContent } from "@/components/ui/card"
+import { GraduationCap, Briefcase, Code2 } from "lucide-react"
 
 export function About() {
   return (
-    <section id="about" className="py-20 relative">
-      <div className="container mx-auto px-4">
+    <section id="about" className="py-24 relative">
+      <div className="container mx-auto px-6">
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center justify-center gap-4 mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-16 max-w-6xl mx-auto"
         >
-          <div className="h-[1px] w-12 md:w-24 bg-border" />
-          <h2 className="text-3xl md:text-4xl font-bold text-center">About Me</h2>
-          <div className="h-[1px] w-12 md:w-24 bg-border" />
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">About</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2">
+            A bit about <span className="text-gradient">me</span>
+          </h2>
         </motion.div>
 
-        <div className="flex flex-col items-center max-w-6xl mx-auto">
-          {/* Avatar
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+          {/* Bio - spans 2 columns */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-12"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="md:col-span-2 p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary/20 transition-colors duration-500"
           >
-            <div className="relative w-40 h-40 md:w-48 md:h-48 overflow-hidden rounded-full border-4 border-primary/10 bg-muted/50 shadow-2xl">
-              <div className="absolute inset-0 flex items-center justify-center bg-secondary/30 text-5xl">
-                👨‍💻
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 rounded-lg bg-primary/10">
+                <Code2 className="w-5 h-5 text-primary" />
               </div>
-              {/* <Image src="/about-image.jpg" alt="About Me" fill className="object-cover" /> */}
-            {/* </div>
-          </motion.div> */} 
+              <h3 className="text-xl font-semibold">A Passionate Frontend Developer</h3>
+            </div>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                I am a dedicated frontend developer with a keen eye for detail and a passion for creating user-centric digital experiences. My journey in web development started with a curiosity about how things work on the internet, which quickly turned into a career.
+              </p>
+              <p>
+                I specialize in building responsive, accessible, and performant web and AI applications using modern technologies like React, Next.js, and TypeScript. I believe in writing clean, maintainable code and constantly learning new tools to improve my craft.
+              </p>
+            </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-45  w-full">
-            {/* Left Column: Bio & Stats */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+          {/* Stats */}
+          <div className="flex flex-col gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="space-y-8"
+              className="flex-1 p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary/20 transition-all duration-500 flex flex-col items-center justify-center"
             >
-              <div className="space-y-4 text-center md:text-left">
-                <h3 className="text-2xl md:text-3xl font-semibold">
-                  A Passionate Frontend Developer
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  I am a dedicated frontend developer with a keen eye for detail and a passion for creating user-centric digital experiences. My journey in web development started with a curiosity about how things work on the internet, which quickly turned into a career.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  I specialize in building responsive, accessible, and performant web and ai applications using modern technologies like React, Next.js, and TypeScript. I believe in writing clean, maintainable code and constantly learning new tools to improve my craft.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <Card className="bg-background/30 backdrop-blur-lg border-primary/10">
-                  <CardContent className="p-6 text-center space-y-2">
-                    <h3 className="text-4xl font-bold text-primary">4+</h3>
-                    <p className="text-sm text-muted-foreground">Years Experience</p>
-                  </CardContent>
-                </Card>
-                <Card className="bg-background/30 backdrop-blur-lg border-primary/10">
-                  <CardContent className="p-6 text-center space-y-2">
-                    <h3 className="text-4xl font-bold text-primary">20+</h3>
-                    <p className="text-sm text-muted-foreground">Projects Completed</p>
-                  </CardContent>
-                </Card>
-              </div>
+              <span className="text-5xl font-bold text-gradient">4+</span>
+              <span className="text-sm text-muted-foreground mt-2">Years Experience</span>
             </motion.div>
-
-            {/* Right Column: Education & Experience */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="space-y-8"
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex-1 p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary/20 transition-all duration-500 flex flex-col items-center justify-center"
             >
-              <div className="space-y-6">
-                <h4 className="text-xl font-semibold flex items-center gap-2">
-                  <Briefcase className="text-primary" /> Experience
-                </h4>
-                <div className="border-l-2 border-border pl-6 space-y-6 relative">
-                  <div className="relative">
-                    <div className="absolute -left-[31px] top-1 h-4 w-4 rounded-full bg-primary" />
-                    <h5 className="font-medium">Senior Frontend Developer</h5>
-                    <p className="text-sm text-muted-foreground">Bond Startup • 2023 - 2023</p>
-                    <p className="text-sm text-muted-foreground mt-2">
-                      Leading the frontend team in building scalable web applications.
-                    </p>
-                  </div>
-                  <div className="relative">
-                    <div className="absolute -left-[31px] top-1 h-4 w-4 rounded-full bg-muted border-2 border-primary" />
-                    <h5 className="font-medium">Frontend Developer Intern</h5>
-                    <p className="text-sm text-muted-foreground">Letem • 2022 - 2023</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <h4 className="text-xl font-semibold flex items-center gap-2">
-                  <GraduationCap className="text-primary" /> Education
-                </h4>
-                <div className="border-l-2 border-border pl-6 space-y-6 relative">
-                  <div className="relative">
-                    <div className="absolute -left-[31px] top-1 h-4 w-4 rounded-full bg-primary" />
-                    <h5 className="font-medium">Bachelor of Technology In Automotive Engineering</h5>
-                    <p className="text-sm text-muted-foreground">University of Ibadan • 2022 - Present</p>
-                  </div>
-                </div>
-              </div>
+              <span className="text-5xl font-bold text-gradient">20+</span>
+              <span className="text-sm text-muted-foreground mt-2">Projects Completed</span>
             </motion.div>
           </div>
+
+          {/* Experience */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="md:col-span-2 p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary/20 transition-colors duration-500"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 rounded-lg bg-primary/10">
+                <Briefcase className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold">Experience</h3>
+            </div>
+            <div className="space-y-6">
+              <div className="flex gap-4">
+                <div className="flex flex-col items-center">
+                  <div className="w-3 h-3 rounded-full bg-primary shrink-0 mt-1.5" />
+                  <div className="w-px flex-1 bg-border" />
+                </div>
+                <div className="pb-6">
+                  <h5 className="font-medium">Senior Frontend Developer</h5>
+                  <p className="text-sm text-muted-foreground">Bond Startup &bull; 2023</p>
+                  <p className="text-sm text-muted-foreground mt-2">Leading the frontend team in building scalable web applications.</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex flex-col items-center">
+                  <div className="w-3 h-3 rounded-full border-2 border-primary bg-background shrink-0 mt-1.5" />
+                </div>
+                <div>
+                  <h5 className="font-medium">Frontend Developer Intern</h5>
+                  <p className="text-sm text-muted-foreground">Letem &bull; 2022 - 2023</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Education */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary/20 transition-colors duration-500"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 rounded-lg bg-primary/10">
+                <GraduationCap className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold">Education</h3>
+            </div>
+            <div className="flex gap-4">
+              <div className="flex flex-col items-center">
+                <div className="w-3 h-3 rounded-full bg-primary shrink-0 mt-1.5" />
+              </div>
+              <div>
+                <h5 className="font-medium text-sm">B.Tech Automotive Engineering</h5>
+                <p className="text-sm text-muted-foreground">University of Ibadan &bull; 2022 - Present</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
