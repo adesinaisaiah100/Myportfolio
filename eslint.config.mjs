@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendor AI chat components (third-party, not maintained locally)
+    "components/ai-elements/**",
   ]),
 ]);
 
